@@ -3,10 +3,9 @@ from fastapi import FastAPI
 import uvicorn
 from typing import Dict, Any
 
+app = FastAPI(title="prediction model")
 
-app = FastAPI(title="customer-churn-prediction")
-
-with open('model.bin', 'rb') as f_in:
+with open('pipeline_v1.bin', 'rb') as f_in:
     pipeline = pickle.load(f_in)
 
 
