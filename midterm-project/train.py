@@ -254,4 +254,4 @@ import pickle
 
 # Save the model - math, reading, writing
 with open('score_predict_model.pkl', 'wb') as f:
-    pickle.dump(models['lr'], f)
+    pickle.dump((dv, models['lr']), f)
