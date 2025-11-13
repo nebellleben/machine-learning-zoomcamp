@@ -14,7 +14,6 @@ from sklearn.linear_model import Lasso
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.ensemble import RandomForestRegressor
 
-!pip install xgboost
 import xgboost as xgb
 
 df = pd.read_csv('StudentsPerformance.csv')
