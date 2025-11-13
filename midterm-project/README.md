@@ -1,13 +1,21 @@
-# Description of the problem
+### Problem Description
 
-Dataset: https://www.kaggle.com/datasets/sadiajavedd/students-academic-performance-dataset
+The goal of this project is to predict **students' academic performance** — specifically their **math, reading, and writing scores** — based on demographic and educational background factors such as gender, parental education level, lunch type, and test preparation course.
 
-The dataset has been downloaded and stored in this repository as StudentsPerformance.csv
+This predictive model can help educators identify students who may need additional support in specific subjects.
 
-Features from these columns are used to predict the exam scores:
-- gender, ethnicity
-- parental education
-- lunch type
-- test preparation status
+### Dataset
 
-# Instructions on how to run the project
+* **Source:** [Kaggle - Students Performance in Exams](https://www.kaggle.com/datasets/spscientist/students-performance-in-exams)
+* **Description:** The dataset contains demographic and test information of students, including:
+
+  * Gender
+  * Race/Ethnicity
+  * Parental level of education
+  * Lunch type
+  * Test preparation course
+  * Math score (target variable)
+  * Reading score (target variable)
+  * Writing score (target variable)
+
+### Instruction on how to run this project
