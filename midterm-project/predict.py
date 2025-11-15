@@ -9,19 +9,20 @@ app = FastAPI(title="prediction model")
 #with open('pipeline_v1.bin', 'rb') as f_in:
 #    pipeline = pickle.load(f_in)
 
-with open('score_predict_model.pkl', 'rb') as f:
-    dv, models = pickle.load(f)
+with open('score_predict_model_lr.pkl', 'rb') as f:
+    dv, modelm, modelr, modelw = pickle.load(f)
 
 
 def predict_single(student):
-
-    #df = pd.DataFrame(student)
-    #df_dict = df.to_dict(orient='records')
-    df_dict = student.to_dict(orient='records')
+    student_df = pd.DataFrame([student])
+    df_dict = student_df.to_dict(orient='records')
     X = dv.transform(df_dict)
 
     #result = [loaded_models[0].predict(student), loaded_models[1].predict(student), loaded_models[2].predict(student)]
-    result = models[0].predict(X) # need to predict all actually
+    #result = models[0].predict(X) # need to predict all actually
+    result = float(modelm.predict(X)[0]) # need to predict all actually
+    #result =[modelm.predict(X), modelr.predict(X), modelw.predict(X)] # need to predict all actually
+
     return result
 
 

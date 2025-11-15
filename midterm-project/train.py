@@ -253,5 +253,14 @@ plt.show()
 import pickle
 
 # Save the model - math, reading, writing
-with open('score_predict_model.pkl', 'wb') as f:
-    pickle.dump((dv, models['lr']), f)
+with open('score_predict_model_lr.pkl', 'wb') as f:
+    pickle.dump((dv, models['lr'][0], models['lr'][1], models['lr'][2]), f)
+
+with open('score_predict_model_dt.pkl', 'wb') as f:
+    pickle.dump((dv, models['dt']), f)
+
+with open('score_predict_model_dt.pkl', 'wb') as f:
+    pickle.dump((dv, models['rf']), f)
+
+with open('score_predict_model_xgb.pkl', 'wb') as f:
+    pickle.dump((dv, models['xgb']), f)
