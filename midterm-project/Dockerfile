@@ -15,7 +15,7 @@ RUN pip install xgboost
 WORKDIR /app
 
 # Copy any python files and the model we had to the working directory of Docker 
-COPY ["*.py", "*.pkl", "pyproject.toml", "./"]
+COPY ["*.py", "*.pkl", "*.csv", "pyproject.toml", "./"]
 
 # We need to expose the 9696 port because we're not able to communicate with Docker outside it
 EXPOSE 9696
