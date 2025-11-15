@@ -123,18 +123,13 @@ This predictive model can help educators identify students who may need addition
 * Write Dockerfile
 * Run and test container locally (`docker build`, `docker run`)
 
-### 6.3 Optional: Cloud Deployment
-
-* (Optional) Deploy to cloud platform (e.g., Render, Railway, or Hugging Face Spaces)
-* Include **URL** or **video screenshot** in README
-
----
+### 6.3 Optional: Cloud Deployment (Skipped)
 
 ## 7. Reproducibility and Environment Management
 
 ### 7.1 Dependency File
 
-* Include `requirements.txt` or `Pipfile` listing all dependencies.
+* Include `requirements.txt` listing all dependencies.
 
 ### 7.2 Virtual Environment Setup
 
@@ -147,11 +142,12 @@ pip install -r requirements.txt
 ### 7.3 Execution Instructions
 
 1. Clone this repository
-2. Install dependencies
-3. Run `train.py` to train the model
-4. Run `predict.py` to test predictions
-5. Start Flask/FastAPI app via `python predict.py`
-6. (Optional) Build Docker image and deploy
+2. Run Docker Image with the following commands in terminal:
+'''
+docker build -t student-score-prediction .
+docker run -it --rm -p 9696:9696 student-score-prediction
+'''
+3. Open the browser and access the location [http://localhost:9696/docs](http://localhost:9696/docs)
 
 ---
 ## 8. Reflection and Next Steps

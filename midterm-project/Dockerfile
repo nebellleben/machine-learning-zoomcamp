@@ -4,10 +4,10 @@ RUN pip install uv
 
 WORKDIR /app
 
-COPY ".python-version", "pyprojecdt.toml", "uv.lock", "./"
+COPY ".python-version" "pyproject.toml" "uv.lock" ./
 RUN uv sync --locked
 
-COPY "*.py" "score_predict_model_lr.pkl" "StudentsPerformance.csv" "./"
+COPY "train.py" "predict.py" "testrequest.py" "score_predict_model_lr.pkl" "StudentsPerformance.csv" ./
 
 EXPOSE 9696
 
