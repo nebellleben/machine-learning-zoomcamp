@@ -174,6 +174,7 @@ docker run -it --rm -p 9696:9696 student-score-prediction
  * Parents' education background does have positive correlation with test scores
 * My biggest difficulties are with deployment, how thanks to Alexey I had hands on experience with using `uv` and `Docker`
 
+(/workspaces/machine-learning-zoomcamp/midterm-project/images/covmat.png)
 
 ## 9. References
 
