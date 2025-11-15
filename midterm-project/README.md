@@ -141,15 +141,16 @@ uv add --dev requests
 
 ### 7.2 Execution Instructions
 
-1. Clone this repository `git pull https://github.com/nebellleben/machine-learning-zoomcamp/tree/main/midterm-project`
-2. In case you didn't have Docker installed please install it
-3. Run Docker Image with the following commands in terminal:
+1. Clone this repository `git pull https://github.com/nebellleben/machine-learning-zoomcamp/`
+2. Go to the sub-directory `midterm-project` which contains the project files
+3. In case you didn't have Docker installed please install it
+4. Run Docker Image with the following commands in terminal:
 ```bash
 docker build -t student-score-prediction .
 docker run -it --rm -p 9696:9696 student-score-prediction
 ```
-4. Open the browser and access the location [http://localhost:9696/docs](http://localhost:9696/docs)
-5. You can test out the prediction with the following dummy data:
+5. Open the browser and access the location [http://localhost:9696/docs](http://localhost:9696/docs)
+6. You can test out the prediction with the following dummy data:
 ```
 {
     "gender": "female",
@@ -159,7 +160,7 @@ docker run -it --rm -p 9696:9696 student-score-prediction
     "test preparation course":"none"
 }
 ```
-6. The predicted score should be shown as below:
+7. The predicted score should be shown as below:
 ```
 {
   "math score": 66.417124605768,
