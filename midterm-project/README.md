@@ -168,10 +168,16 @@ docker run -it --rm -p 9696:9696 student-score-prediction
 
 ## 8. Reflection and Next Steps
 
-* Summarize findings and model performance
-* Discuss key features influencing student performance
-* Outline potential improvements (e.g., handling outliers, adding new data)
-* Reflect on lessons learned from the project
+* The dataset is not large - only 1000 entries
+* I believe that if the dataset is bigger and if there are more features, more accurate predications can be made
+* Also surprisingly more sophisticated model didn't give better results, probably related to the same problem of limited size of dataset and number of features
+* During EDA the following insights were observed:
+ * Male performs better at math and female performs better at reading and writing, on average
+ * Reading and writing scores are strongly correlated
+ * Social background does have positive correlation on the test score, ranking from lowest score to highest score: group A < B < C < D < E
+ * Doing test preps and having lunch do improve scores
+ * Parents' education background does have positive correlation with test scores
+* My biggest difficulties are with deployment, how thanks to Alexey I had hands on experience with using `uv` and `Docker`
 
 
 ## 9. References
