@@ -141,7 +141,7 @@ uv add --dev requests
 
 ### 7.2 Execution Instructions
 
-1. Clone this repository `git pull https://github.com/nebellleben/machine-learning-zoomcamp/`
+1. Clone this repository `git pull https://github.com/nebellleben/machine-learning-zoomcamp/`; if it doesn't work please go to the project page to download the zip file manually
 2. Go to the sub-directory `midterm-project` which contains the project files
 3. In case you didn't have Docker installed please install it
 4. Run Docker Image with the following commands in terminal:
