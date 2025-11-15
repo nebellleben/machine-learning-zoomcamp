@@ -1,5 +1,7 @@
 # 🎓 Midterm Project — Student Performance Prediction
 
+Note: Jump right to [here](7 Reproducibility and Environment Management) for deployment instructions.
+
 ## 1. Project Overview
 
 ### 1.1 Overview and Problem Statement
