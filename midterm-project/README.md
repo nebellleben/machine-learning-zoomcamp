@@ -147,6 +147,16 @@ docker build -t student-score-prediction .
 docker run -it --rm -p 9696:9696 student-score-prediction
 ```
 4. Open the browser and access the location [http://localhost:9696/docs](http://localhost:9696/docs)
+5. You can test out the prediction with the following dummy data:
+```
+student = {
+    "gender": "female",
+    "race/ethnicity":"group B",
+    "parental level of education":"master's degree",
+    "lunch":"standard",
+    "test preparation course":"none"
+}
+```
 
 ## 8. Reflection and Next Steps
 
