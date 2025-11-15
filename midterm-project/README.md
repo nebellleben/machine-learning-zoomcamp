@@ -129,7 +129,13 @@ This predictive model can help educators identify students who may need addition
 
 ### 7.1 Dependency File
 
-* Include `requirements.txt` listing all dependencies.
+* Dependencies have been built into the uv files (`pyproject.toml` and `uv.lock`)
+* This is how it was done (you don't have to execute the following code)
+```bash
+uv init
+uv add scikit-learn fastapi uvicorn xgboost pandas numpy matplotlib seaborn
+uv add --dev requests
+```
 
 ### 7.2 Virtual Environment Setup
 
@@ -143,10 +149,10 @@ pip install -r requirements.txt
 
 1. Clone this repository
 2. Run Docker Image with the following commands in terminal:
-'''
+```bash
 docker build -t student-score-prediction .
 docker run -it --rm -p 9696:9696 student-score-prediction
-'''
+```
 3. Open the browser and access the location [http://localhost:9696/docs](http://localhost:9696/docs)
 
 ---
