@@ -44,14 +44,6 @@ This predictive model can help educators identify students who may need addition
 * Countplots for categorical variables (e.g., gender, parental education)
 * Heatmap and Pairplots to explore target interactions
 
-### 2.4 Feature Insights
-
-* Discuss key trends:
-
-  * Gender differences in performance
-  * Impact of test preparation course
-  * Parental education vs student performance
-
 ## 3. Data Preprocessing
 
 ### 3.1 Feature-Target Separation
