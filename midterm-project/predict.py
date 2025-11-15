@@ -20,10 +20,12 @@ def predict_single(student):
 
     #result = [loaded_models[0].predict(student), loaded_models[1].predict(student), loaded_models[2].predict(student)]
     #result = models[0].predict(X) # need to predict all actually
-    result = float(modelm.predict(X)[0]) # need to predict all actually
+    y_pred_m = float(modelm.predict(X)[0]) # need to predict all actually
+    y_pred_r = float(modelr.predict(X)[0]) 
+    y_pred_w = float(modelw.predict(X)[0]) 
     #result =[modelm.predict(X), modelr.predict(X), modelw.predict(X)] # need to predict all actually
 
-    return result
+    return [y_pred_m, y_pred_r, y_pred_w]
 
 
 @app.post("/predict")
@@ -31,10 +33,10 @@ def predict(student: Dict[str, Any]):
     results = predict_single(student)
 
     return {
-        "math score": results
-#        "math score": results[0],
-#        "reading score": results[1],
-#        "writing score": results[2]
+#        "math score": results
+        "math score": results[0],
+        "reading score": results[1],
+        "writing score": results[2]
     }
 
 
