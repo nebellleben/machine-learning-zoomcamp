@@ -175,6 +175,11 @@ docker run -it --rm -p 9696:9696 student-score-prediction
 * My biggest difficulties are with deployment, how thanks to Alexey I had hands on experience with using `uv` and `Docker`
 
 ![Covariance grid](/midterm-project/images/covmat.png)
+![Ethnicity](/midterm-project/images/ethnicity.png)
+![Gender](/midterm-project/images/gender.png)
+![Lunch](/midterm-project/images/lunch.png)
+![Parent](/midterm-project/images/parent.png)
+![Test Prep](/midterm-project/images/testprep.png)
 
 ## 9. References
 
