@@ -5,6 +5,8 @@ COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 
 WORKDIR /app
 
+ENV PATH="/app/.venv/bin:$PATH"
+
 COPY ".python-version" "pyproject.toml" "uv.lock" ./
 RUN uv sync --locked
 
@@ -12,4 +14,5 @@ COPY "train.py" "predict.py" "testrequest.py" "score_predict_model_lr.pkl" "Stud
 
 EXPOSE 9696
 
-ENTRYPOINT ["uv", "run", "uvicorn", "predict:app", "--host", "0.0.0.0", "--port", "9696"]
+#ENTRYPOINT ["uv", "run", "uvicorn", "predict:app", "--host", "0.0.0.0", "--port", "9696"]
+ENTRYPOINT ["uvicorn", "predict:app", "--host", "0.0.0.0", "--port", "9696"]
