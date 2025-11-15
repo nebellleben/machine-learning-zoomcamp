@@ -137,17 +137,10 @@ uv add scikit-learn fastapi uvicorn xgboost pandas numpy matplotlib seaborn
 uv add --dev requests
 ```
 
-### 7.2 Virtual Environment Setup
+### 7.2 Execution Instructions
 
-```bash
-python -m venv venv
-source venv/bin/activate  # or venv\Scripts\activate on Windows
-pip install -r requirements.txt
-```
-
-### 7.3 Execution Instructions
-
-1. Clone this repository
+1. Clone this repository `git pull https://github.com/nebellleben/machine-learning-zoomcamp/tree/main/midterm-project`
+2. In case you don't have Docker installed please install it `brew install docker`
 2. Run Docker Image with the following commands in terminal:
 ```bash
 docker build -t student-score-prediction .
@@ -155,7 +148,6 @@ docker run -it --rm -p 9696:9696 student-score-prediction
 ```
 3. Open the browser and access the location [http://localhost:9696/docs](http://localhost:9696/docs)
 
----
 ## 8. Reflection and Next Steps
 
 * Summarize findings and model performance
@@ -163,7 +155,6 @@ docker run -it --rm -p 9696:9696 student-score-prediction
 * Outline potential improvements (e.g., handling outliers, adding new data)
 * Reflect on lessons learned from the project
 
----
 
 ## 9. References
 
