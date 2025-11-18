@@ -128,12 +128,13 @@ predictions = {}
 #lr = []
 #pred_lr = []
 
-models['lr'] = []
+
 predictions['lr'] = []
 
 lasso_alpha = [0.001, 0.01, 0.1, 1, 10]
 
 for la in lasso_alpha:
+    models['lr'] = []
     for i in range(3):
         models['lr'].append(Lasso(alpha=la))
         models['lr'][i].fit(X_train, y_train[i])
@@ -148,10 +149,11 @@ for la in lasso_alpha:
 dt_max_depths = [1,5,10,15]
 dt_min_samples_split = [2,5,7,10]
 
-models['dt'] = []
+
 predictions['dt'] = []
 for mss in dt_min_samples_split:
     for md in dt_max_depths:
+        models['dt'] = []
         for i in range(3):
             models['dt'].append(DecisionTreeRegressor(max_depth=md, min_samples_split=mss))
             models['dt'][i].fit(X_train, y_train[i])
@@ -167,11 +169,13 @@ for mss in dt_min_samples_split:
 rf_n_estimators = [1,5,10,15]
 rf_max_depth = [1,5,10,15]
 
-models['rf'] = []
+
 predictions['rf'] = []
 for ne in rf_n_estimators:
     for md in rf_max_depth:
+        models['rf'] = []
         for i in range(3):
+            
             models['rf'].append(RandomForestRegressor(n_estimators = ne, max_depth = md))
             models['rf'][i].fit(X_train, y_train[i])
             predictions['rf'].append(models['rf'][i].predict(X_val))
@@ -185,14 +189,14 @@ for ne in rf_n_estimators:
 etas = [1, 0.5, 0.3, 0.1, 0.05]
 features = list(dv.get_feature_names_out())
 
-models['xgb'] = []
+
 predictions['xgb'] = []
 
 for eta in etas:
 
     score = 0
     for i in range(3):
-        
+        models['xgb'] = []
         dtrain = xgb.DMatrix(X_train, label=y_train[i], feature_names=features)
         dval = xgb.DMatrix(X_val, label=y_val[i], feature_names=features)
 
@@ -248,6 +252,65 @@ fig.tight_layout(pad=2.0)
 fig.suptitle("Actual vs Predicted Scores", fontsize=16, y=1.02, fontweight='bold')
 
 plt.show()
+
+predictions['lr'] = []
+predictions['dt'] = []
+predictions['rf'] = []
+predictions['xgb'] = []
+xscore = 0
+
+models['lr']=[]
+models['dt']=[]
+models['rf']=[]
+models['xgb']=[]
+
+for i in range(3):
+
+
+    models['lr'].append(Lasso(alpha=0.001))
+    models['lr'][i].fit(X_train, y_train[i])
+    y_pred = models['lr'][i].predict(X_test)
+    predictions['lr'].append(y_pred)
+
+    models['dt'].append(DecisionTreeRegressor(max_depth=1, min_samples_split=2))
+    models['dt'][i].fit(X_train, y_train[i])
+    predictions['dt'].append(models['dt'][i].predict(X_test))
+
+    models['rf'].append(RandomForestRegressor(n_estimators = 1, max_depth = 1))
+    models['rf'][i].fit(X_train, y_train[i])
+    predictions['rf'].append(models['rf'][i].predict(X_test))
+
+    dtrain = xgb.DMatrix(X_train, label=y_train[i], feature_names=features)
+    dtest = xgb.DMatrix(X_test, label=y_test[i], feature_names=features)
+    xgb_params = {
+        'eta': eta,
+        'max_depth': 20,
+        'min_child_weight': 1,
+        
+        'objective': 'reg:squarederror',
+        'nthread': 8,
+        
+        'seed': 1,
+        'verbosity': 1,
+    }
+
+
+    model = xgb.train(xgb_params,dtrain=dtrain,num_boost_round=100)
+
+    models['xgb'].append(model)
+    predictions['xgb'].append(model.predict(dtest))
+    xscore += mean_squared_error(y_val[i], predictions['xgb'][i])
+
+predictions['lr'].append(y_pred)
+
+print(f'Lasso Regression RMSE: {(mean_squared_error(y_test[0], predictions['lr'][0])+mean_squared_error(y_test[1], predictions['lr'][1])+mean_squared_error(y_test[2], predictions['lr'][2]))**0.5}')
+print(f'Decision Tree RMSE: {(mean_squared_error(y_test[0], predictions['dt'][0])+mean_squared_error(y_test[1], predictions['dt'][1])+mean_squared_error(y_test[2], predictions['dt'][2]))**0.5}')
+print(f'Random Forest RMSE: {(mean_squared_error(y_test[0], predictions['rf'][0])+mean_squared_error(y_test[1], predictions['rf'][1])+mean_squared_error(y_test[2], predictions['rf'][2]))**0.5}')
+xscore = xscore**0.5
+print(f'XGBoost RMSE:%.3f' % score)
+
+print()
+print('Training Completed')
 
 
 import pickle
