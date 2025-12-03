@@ -7,4 +7,4 @@ COPY hair_classifier_empty.onnx .
 
 COPY lambda_function.py .
 
-CMD ["homework9.lambda_handler"]
+CMD ["lambda_function.lambda_handler"]
