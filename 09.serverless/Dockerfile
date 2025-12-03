@@ -1,10 +1,11 @@
 FROM public.ecr.aws/lambda/python:3.13
 FROM agrigorev/model-2025-hairstyle:v1
 
-RUN pip install onnxruntime
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
 
-COPY hair_classifier_empty.onnx.data .
-COPY hair_classifier_empty.onnx .
+#COPY hair_classifier_empty.onnx.data .
+#COPY hair_classifier_empty.onnx .
 
 COPY lambda_function.py .
 
