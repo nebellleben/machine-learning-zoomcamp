@@ -7,7 +7,7 @@ from urllib import request
 from PIL import Image
 import numpy as np
 
-onnxmodelpath = 'hair_classifier_empty.onnx'
+onnxmodelpath = 'hair_classifier_v1.onnx'
 session = ort.InferenceSession(onnxmodelpath)
 
 inputs = session.get_inputs()
