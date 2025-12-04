@@ -27,3 +27,4 @@ venv/
 # ONNX model artifacts
 09.serverless/hair_classifier_v1.onnx
 09.serverless/hair_classifier_v1.onnx.data
+09.serverless/awsdeploy.sh
