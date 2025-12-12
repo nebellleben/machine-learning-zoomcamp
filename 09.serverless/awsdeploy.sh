@@ -31,4 +31,6 @@ aws iam attach-role-policy \
   --role-name lambda-ecr-role \
   --policy-arn arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
 
+aws iam get-role --role-name lambda-ecr-role --query "Role.Arn" --output text
+
 # AI generated: Lambda function creation
